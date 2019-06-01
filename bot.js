@@ -186,7 +186,7 @@ client.on('message', (message) => {
     }
 
     function hasPerms() {
-        if (message.member.roles.has(config.roles.mod) || message.member.roles.has(config.roles.dj) || message.author.id === ownerID) return true;
+       // if (message.member.roles.has(config.roles.mod) || message.member.roles.has(config.roles.dj) || message.author.id === ownerID) return true;
         return false;
     }
 
