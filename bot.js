@@ -175,7 +175,7 @@ client.on('message', (message) => {
             }
             break;
 
-        case "clear":
+        case "stop":
            // if (message.channel.id !== config.channels.text) return;
             if (args.length > 0) return;
             if (!hasPerms()) return message.channel.send(":no_entry_sign: You do not have permission to use this command.");
