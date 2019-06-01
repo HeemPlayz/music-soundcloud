@@ -23,6 +23,8 @@ client.once('ready', () => {
 });
 
 client.on('message', (message) => {
+    
+          let dispatcher = conn.playStream(yt(playlist[0].url, {audioonly: true}), {seek: 0, volume: config.music.volume/100});
 
     let args = message.content.split(" ");
     let command = args.shift().slice(config.bot.prefix.length);
@@ -198,7 +200,6 @@ function play(message) {
     playing = false;
     if (playlist.length === 0) return message.channel.send(":zero: There are currently no songs in the playlist, better queue some up.");
     message.channel.send(`:notes: Now playing: **${playlist[0].name}** (requested by: **${playlist[0].requester.username}**)`);
-    let dispatcher = conn.playStream(yt(playlist[0].url, {audioonly: true}), {seek: 0, volume: config.music.volume/100});
     client.user.setGame(playlist[0].name);
     playing = true;
     let collector = new Discord.MessageCollector(message.channel, m => m);
