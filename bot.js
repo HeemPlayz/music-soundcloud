@@ -40,7 +40,7 @@ client.on('message', (message) => {
             break; */
 
         case "queue":
-            if (message.channel.id !== config.channels.text) return;
+          //  if (message.channel.id !== config.channels.text) return;
             if (args.length > 0) return;
             if (playlist.length === 0) return message.channel.send(":x: There are currently no songs in the playlist.");
             let queueMsg = "";
