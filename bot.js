@@ -180,6 +180,7 @@ client.on('message', (message) => {
             if (args.length > 0) return;
             if (!hasPerms()) return message.channel.send(":no_entry_sign: You do not have permission to use this command.");
             playlist = [];
+            dispatcher.end();
             message.channel.send(":wastebasket: The playlist queue has been cleared.");
             break;
 
@@ -234,7 +235,7 @@ function play(message) {
                 if (!hasPerms()) return m.channel.send(":no_entry_sign: You do not have permission to use this command.");
                 m.channel.send(":track_next: Skipped.").then(() => {
                     dispatcher.end();
-                    playing = false;
+                    playing = true;
                     //client.user.setGame(null);
                 });
                 break;
