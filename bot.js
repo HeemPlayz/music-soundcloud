@@ -15,7 +15,7 @@ let toPlay = true;
 
 let playlist = [];
 
-client.login(config.secret.token);
+client.login("NTg1MDA4MDk4ODM0NjQ0OTkz.XPTOBA.0f2zfaQLbHA3BaE_A6wAqlPWGDw");
 
 client.once('ready', () => {
     console.log(chalk.greenBright.underline("\nBot online.\n"));
@@ -24,7 +24,7 @@ client.once('ready', () => {
 
 client.on('message', (message) => {
     
-          let dispatcher = conn.playStream(yt(playlist[0].url, {audioonly: true}), {seek: 0, volume: config.music.volume/100});
+          
 
     let args = message.content.split(" ");
     let command = args.shift().slice(config.bot.prefix.length);
@@ -179,6 +179,7 @@ client.on('message', (message) => {
 
         case "stop":
            // if (message.channel.id !== config.channels.text) return;
+            let dispatcher = conn.playStream(yt(playlist[0].url, {audioonly: true}), {seek: 0, volume: config.music.volume/100});
             if (args.length > 0) return;
             if (!hasPerms()) return message.channel.send(":no_entry_sign: You do not have permission to use this command.");
             playlist = [];
@@ -273,4 +274,3 @@ function play(message) {
     });
 }
 
-client.login(process.env.BOT_TOKEN);
