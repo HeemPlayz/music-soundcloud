@@ -176,6 +176,10 @@ client.on('message', (message) => {
                 playlist.splice(removeIndex, 1);
             }
             break;
+            
+        
+          
+            
 
     }
 
