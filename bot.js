@@ -214,11 +214,11 @@ function play(message) {
                 
                 case "stop":
            // if (message.channel.id !== config.channels.text) return;
-            if (args.length > 0) return;
+            
             if (!hasPerms()) return message.channel.send(":no_entry_sign: You do not have permission to use this command.");
             playlist = [];
             dispatcher.end();
-            message.channel.send(":wastebasket: The playlist queue has been cleared.");
+            message.channel.send(":wastebasket: The playlist queue has been cleared and the songs have been stoppe.");
             break;
 
     
