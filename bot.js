@@ -15,7 +15,7 @@ let toPlay = true;
 
 let playlist = [];
 
-client.login("NTg1MDA4MDk4ODM0NjQ0OTkz.XPTOBA.0f2zfaQLbHA3BaE_A6wAqlPWGDw");
+
 
 client.once('ready', () => {
     console.log(chalk.greenBright.underline("\nBot online.\n"));
@@ -274,3 +274,4 @@ function play(message) {
     });
 }
 
+client.login("NTg1MDA4MDk4ODM0NjQ0OTkz.XPTOBA.0f2zfaQLbHA3BaE_A6wAqlPWGDw");
