@@ -177,16 +177,6 @@ client.on('message', (message) => {
             }
             break;
 
-        case "stop":
-           // if (message.channel.id !== config.channels.text) return;
-            let dispatcher = conn.playStream(yt(playlist[0].url, {audioonly: true}), {seek: 0, volume: config.music.volume/100});
-            if (args.length > 0) return;
-            if (!hasPerms()) return message.channel.send(":no_entry_sign: You do not have permission to use this command.");
-            playlist = [];
-            dispatcher.end();
-            message.channel.send(":wastebasket: The playlist queue has been cleared.");
-            break;
-
     }
 
     function hasPerms() {
@@ -201,6 +191,8 @@ function play(message) {
     playing = false;
     if (playlist.length === 0) return message.channel.send(":zero: There are currently no songs in the playlist, better queue some up.");
     message.channel.send(`:notes: Now playing: **${playlist[0].name}** (requested by: **${playlist[0].requester.username}**)`);
+     let dispatcher = conn.playStream(yt(playlist[0].url, {audioonly: true}), {seek: 0, volume: config.music.volume/100});
+
     client.user.setGame(playlist[0].name);
     playing = true;
     let collector = new Discord.MessageCollector(message.channel, m => m);
@@ -219,6 +211,17 @@ function play(message) {
                     });
                 }
                 break;
+                
+                case "stop":
+           // if (message.channel.id !== config.channels.text) return;
+            if (args.length > 0) return;
+            if (!hasPerms()) return message.channel.send(":no_entry_sign: You do not have permission to use this command.");
+            playlist = [];
+            dispatcher.end();
+            message.channel.send(":wastebasket: The playlist queue has been cleared.");
+            break;
+
+    
 
             case "resume":
               //  if (m.channel.id !== config.channels.text) return;
